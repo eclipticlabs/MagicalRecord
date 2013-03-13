@@ -213,7 +213,7 @@ NSString * const kMagicalRecordImportAttributeUseDefaultValueWhenNotPresent = @"
 
 - (BOOL) MR_importValuesForKeysWithObject:(id)objectData
 {
-    typeof(self) weakself = self;
+    __typeof(self) weakself = self;
     return [self MR_performDataImportFromObject:objectData
                               relationshipBlock:^(NSRelationshipDescription *relationshipInfo, id localObjectData) {
         
@@ -258,7 +258,7 @@ NSString * const kMagicalRecordImportAttributeUseDefaultValueWhenNotPresent = @"
 }
 
 + (NSArray *) MR_importFromArray:(NSArray *)listOfObjectData inContext:(NSManagedObjectContext *)context
-{
+{	
     NSMutableArray *objectIDs = [NSMutableArray array];
     
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) 
